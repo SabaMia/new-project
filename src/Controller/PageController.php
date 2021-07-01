@@ -66,7 +66,7 @@ class PageController
 
         // si le parametre GET 'sent' est égal à 'yes' alors j'envoie
         // une réponse avec ''
-        if ($age > 18) {
+        if ($age >= 18) {
             return new Response("Bienvenue chez Winalooz");
             // sinon je renvoie le formulaire en réponse
         }
