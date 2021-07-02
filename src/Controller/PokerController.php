@@ -15,6 +15,7 @@ class PokerController extends AbstractController
      * @Route("/poker", name="poker")
      */
     public function poker()
+    //OU public function poker(Request $request)
     {
 
         // j'utilise la classe Request du composant HTTPFoundation
