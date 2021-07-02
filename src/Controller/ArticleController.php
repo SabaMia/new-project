@@ -2,10 +2,11 @@
 
 
 namespace App\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/articles", name="listArticles")
@@ -27,28 +28,46 @@ class ArticleController
 
         $articles = [
             1 => [
-                "title" => "La vaccination c'est trop géniale",
+                "title" => "Le vaccin c'est trop génial",
                 "content" => "bablablblalba",
                 "id" => 1
             ],
             2 => [
-                "title" => "La vaccination c'est pas trop géniale",
+                "title" => "Le vaccin c'est pas trop génial",
                 "content" => "blablablabla",
                 "id" => 2
             ],
             3 => [
-                "title" => "Balkany c'est trop génial",
+                "title" => "Poutou c'est trop génial",
                 "content" => "balblalblalb",
                 "id" => 3
             ],
             4 => [
-                "title" => "Balkany c'est pas trop génial",
+                "title" => "Poutou c'est toujours trop génial",
                 "content" => "balblalblalb",
                 "id" => 4
             ]
         ];
-        $articles = $articles[$id];
-        return new Response($articles['title']);
-        //return new Response($id);
+
+        //Correction Julien :
+        if(array_key_exists($id , $articles)){
+            $article = $articles[$id];
+            //$concat = "titre : " . $article['title'] . "<br>" . "contenu : " . $article['content'] . "<br>" . "id : " . $article['id'];
+            //return new Response($concat);
+
+            //Pour votre méthode ArticleShow(), retournez le render d'un fichier twig en réponse
+            return $this->render('article_show.html.twig',[
+                'article' =>$articles[$id]
+            ]);
+
+        }else{
+
+            return $this->redirectToRoute("home");
+        }
+
+
+        //$articles = $articles[$id];
+        //return new Response($articles['title']);
+        
     }
 }
