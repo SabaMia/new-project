@@ -12,7 +12,8 @@ class ArticleController
      */
     public function ListArticles()
     {
-        return new Response('Liste des articles');
+
+        return new Response("Liste des articles");
     }
 
 
@@ -22,6 +23,32 @@ class ArticleController
      */
     public function articleShow($id)
     {
-        return new Response($id);
+        //Affichez sur votre page d'article, l'article du tableau suivant correspondant à l'id placé dans l'URL.
+
+        $articles = [
+            1 => [
+                "title" => "La vaccination c'est trop géniale",
+                "content" => "bablablblalba",
+                "id" => 1
+            ],
+            2 => [
+                "title" => "La vaccination c'est pas trop géniale",
+                "content" => "blablablabla",
+                "id" => 2
+            ],
+            3 => [
+                "title" => "Balkany c'est trop génial",
+                "content" => "balblalblalb",
+                "id" => 3
+            ],
+            4 => [
+                "title" => "Balkany c'est pas trop génial",
+                "content" => "balblalblalb",
+                "id" => 4
+            ]
+        ];
+        $articles = $articles[$id];
+        return new Response($articles['title']);
+        //return new Response($id);
     }
 }
