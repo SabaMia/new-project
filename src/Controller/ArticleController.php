@@ -8,15 +8,41 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
 {
+    //Affichez sur votre page d'article, l'article du tableau suivant correspondant à l'id placé dans l'URL.
+
+    private $articles = [
+        1 => [
+            "title" => "Chocolat blanc",
+            "content" => "Recettes au chocolat blanc",
+            "id" => 1
+        ],
+        2 => [
+            "title" => "Chocolat au lait",
+            "content" => "Recettes au chocolat au lait",
+            "id" => 2
+        ],
+        3 => [
+            "title" => "Chocolat noir",
+            "content" => "Recettes au chocolat noir",
+            "id" => 3
+        ],
+        4 => [
+            "title" => "Chocolat aux noisettes",
+            "content" => "Recettes au chocolat aux noisettes",
+            "id" => 4
+        ]
+    ];
+
+
     /**
      * @Route("/articles", name="listArticles")
      */
-    public function ListArticles()
+    public function listArticles()
     {
-
-        return new Response("Liste des articles");
+        return $this->render('article_list.html.twig',[
+            'articles' => $this->articles
+        ]);
     }
-
 
     /**
      * * utilisation d'une wildcard symfony pour inclure un id dans l'url
@@ -24,50 +50,21 @@ class ArticleController extends AbstractController
      */
     public function articleShow($id)
     {
-        //Affichez sur votre page d'article, l'article du tableau suivant correspondant à l'id placé dans l'URL.
-
-        $articles = [
-            1 => [
-                "title" => "Le vaccin c'est trop génial",
-                "content" => "bablablblalba",
-                "id" => 1
-            ],
-            2 => [
-                "title" => "Le vaccin c'est pas trop génial",
-                "content" => "blablablabla",
-                "id" => 2
-            ],
-            3 => [
-                "title" => "Poutou c'est trop génial",
-                "content" => "balblalblalb",
-                "id" => 3
-            ],
-            4 => [
-                "title" => "Poutou c'est toujours trop génial",
-                "content" => "balblalblalb",
-                "id" => 4
-            ]
-        ];
-
-        //Correction Julien :
-        if(array_key_exists($id , $articles)){
-            $article = $articles[$id];
+            //Correction Julien :
+            //if(array_key_exists($id , $articles)){
+            //$article = $articles[$id];
             //$concat = "titre : " . $article['title'] . "<br>" . "contenu : " . $article['content'] . "<br>" . "id : " . $article['id'];
             //return new Response($concat);
 
             //Pour votre méthode ArticleShow(), retournez le render d'un fichier twig en réponse
             return $this->render('article_show.html.twig',[
-                'article' =>$articles[$id]
+                'article' =>$this->articles[$id]
             ]);
-
-        }else{
-
-            return $this->redirectToRoute("home");
+       // }else{
+       //     return $this->redirectToRoute("home");
         }
-
-
         //$articles = $articles[$id];
         //return new Response($articles['title']);
-        
-    }
+
+   // }
 }

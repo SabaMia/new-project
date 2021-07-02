@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+}
+
+body{
+
+    text-align: center;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+}
+
+header,
+footer{
+    height: 10vh;
+    background-color: black;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 25%;
+    justify-content: space-around;
+}
+
+.f-white{
+    color: white;
+}
+
+h1{
+    padding-top: 20px;
+}
+
+article{
+margin: 20px 0;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 50px;
+    height: 200px;
+    padding: 60px;
+
+}
