@@ -2,7 +2,6 @@
 
 
 namespace App\Controller;
-use symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
