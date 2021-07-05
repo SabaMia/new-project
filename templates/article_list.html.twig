@@ -1,14 +1,30 @@
 
-    {% include '_header.html.twig'%}
-        <main>
+ {# {% include '_header.html.twig'%} #}
+ {# j'insère un extends pour lier le fichier layout/héritage #}
+ {% extends 'base.html.twig' %}
+
+ {# j'insère un block pour la balise meta title puis je le ferme avec endblock #}
+ {% block metaTitle %}
+ Liste des Articles
+ {% endblock metaTitle %}
+
+ {# j'insère un block pour la balise main puis je le ferme avec endblock #}
+ {% block main %}
         {% for article in articles %}
-            <article class="card">
+            <article class="list">
                 {# on ajoute un chemin path qui va créer un url unique pour chaque article #}
-                <a href={{ path('articleShow',{'id':article.id })}}><h1>Le titre : "{{ article.title }}"</h1></a>
+                <a href={{ path('articleShow',{'id':article.id })}}><h1>{{ article.title }}</h1></a>
+                <br>
                 <img src="{{ asset(article.image)}}" alt="">
-                <h1>Le contenu : "{{ article.content }}"</h1>
-                <h1>id : {{ article.id }}</h1>
+                {#  <h1>Le contenu : "{{ article.content }}"</h1> #}
+                {#  <h1>id : {{ article.id }}</h1> #}
             </article>
         {% endfor %}
-        </main>
-    {% include '_footer.html.twig' %}
+ {% endblock main %}
+
+ {# j'insère un block pour insérer du texte dans le footer puis je le ferme avec endblock #}
+   {% block textFooter %}
+       <h1> Footer de la liste</h1>
+   {% endblock textFooter %}
+ {# {% include '_footer.html.twig' %} #}
+

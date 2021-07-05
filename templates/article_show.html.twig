@@ -1,17 +1,29 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{# j'insère un extends pour lier le fichier layout/héritage #}
+{% extends 'base.html.twig' %}
 
-    <title>Article n°{{ article.id }}</title>
-</head>
-<body>
-    <h1>Le titre : "{{ article.title }}"</h1>
-    <h1>Le contenu : "{{ article.content }}"</h1>
-    <h1>id : {{ article.id }}</h1>
-</body>
-</html>
+
+{# j'insère un block pour la balise meta title puis je le ferme avec endblock #}
+{% block metaTitle %}
+    Article n°{{ article.id }}
+{% endblock metaTitle %}
+
+
+{# j'insère un block pour la balise main puis je le ferme avec endblock #}
+{% block main %}
+    <article class="center">
+    <h1>{{ article.title }}</h1>
+    <h1>Liste des recettes : "{{ article.content }}"</h1>
+    {# <h1>id : {{ article.id }}</h1> #}
+    </article>
+{% endblock main %}
+
+
+{# j'insère un block pour insérer du texte dans le footer puis je le ferme avec endblock #}
+  {% block textFooter %}
+      <h1>Footer de l'article</h1>
+  {% endblock textFooter %}
+
+
+
+
+
