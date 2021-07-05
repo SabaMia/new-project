@@ -13,21 +13,25 @@ class ArticleController extends AbstractController
     private $articles = [
         1 => [
             "title" => "Chocolat blanc",
+            "image" => "media/chocolatBlanc.jpg",
             "content" => "Recettes au chocolat blanc",
             "id" => 1
         ],
         2 => [
             "title" => "Chocolat au lait",
+            "image" => "media/chocolatLait.jpg",
             "content" => "Recettes au chocolat au lait",
             "id" => 2
         ],
         3 => [
             "title" => "Chocolat noir",
+            "image" => "media/chocolatNoir.jpg",
             "content" => "Recettes au chocolat noir",
             "id" => 3
         ],
         4 => [
             "title" => "Chocolat aux noisettes",
+            "image" => "media/chocolatNoisettes.jpg",
             "content" => "Recettes au chocolat aux noisettes",
             "id" => 4
         ]

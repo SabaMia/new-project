@@ -1,32 +1,14 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <title>Recettes</title>
-</head>
-<body>
-<header class="f-white">
-<h1>Header</h1>
-</header>
-<main>
-{% for article in articles %}
-    <article class="card">
-        {# on ajoute un chemin path qui va créer un url unique pour chaque article #}  
-        <a href={{ path('articleShow',{'id':article.id })}}><h1>Le titre : "{{ article.title }}"</h1></a>
-        <h1>Le contenu : "{{ article.content }}"</h1>
-        <h1>id : {{ article.id }}</h1>
-    </article>
-{% endfor %}
-</main>
-<footer class="f-white">
-<h1>Footer</h1>
-</footer>
-</body>
-</html>
+
+    {% include '_header.html.twig'%}
+        <main>
+        {% for article in articles %}
+            <article class="card">
+                {# on ajoute un chemin path qui va créer un url unique pour chaque article #}
+                <a href={{ path('articleShow',{'id':article.id })}}><h1>Le titre : "{{ article.title }}"</h1></a>
+                <img src="{{ asset(article.image)}}" alt="">
+                <h1>Le contenu : "{{ article.content }}"</h1>
+                <h1>id : {{ article.id }}</h1>
+            </article>
+        {% endfor %}
+        </main>
+    {% include '_footer.html.twig' %}

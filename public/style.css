@@ -33,13 +33,15 @@ h1{
 }
 
 article{
-    margin: 20px 0;
-    width: 30%;
+    margin: 30px 0;
+    width: 40%;
     border: 1px solid black;
     border-radius: 50px;
-    height: 150px;
-    padding: 60px;
+    padding: 20px;
     background-color: rgba(255,255,255,0.5);
     font-family: 'Lobster', cursive;
 }
 
+article img{
+    width: 200px;
+}
